@@ -17,7 +17,7 @@ docker:
     && rm -rf /var/lib/apt/lists/*
   COPY LICENSE /usr/share/doc/action-dpkg-configure/copyright
   COPY dpkg-configure.sh /usr/local/bin/dpkg-configure.sh
-  RUN chmod +x /dpkg-configure.sh
+  RUN chmod +x /usr/local/bin/dpkg-configure.sh
   ENTRYPOINT ["/usr/local/bin/dpkg-configure.sh"]
   ARG VERSION=dev
   SAVE IMAGE --push ghcr.io/immutos/action-dpkg-configure:${VERSION}
