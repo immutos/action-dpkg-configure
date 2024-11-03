@@ -2,8 +2,9 @@
 set -e
 
 # We need /etc/passwd and /etc/group to exist before running dpkg.
-export DPKG_ROOT=/rootfs
-/rootfs/var/lib/dpkg/info/base-passwd.preinst install
+if [ ! -e /rootfs/etc/passwd ] && [ -x /rootfs/var/lib/dpkg/info/base-passwd.preinst ]; then
+  DPKG_ROOT=/rootfs /rootfs/var/lib/dpkg/info/base-passwd.preinst install
+fi
 
 # Configure all unpacked packages.
 dpkg \
