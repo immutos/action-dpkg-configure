@@ -1,3 +1,3 @@
 # action-dpkg-configure
 
-An action that runs `dpkg --configure -a` on a filesystem of unpacked packages.
+An action that configures unpacked packages on a Debian root filesystem.
